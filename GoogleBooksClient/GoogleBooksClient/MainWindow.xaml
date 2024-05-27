@@ -1,0 +1,46 @@
+﻿<Window x:Class="GoogleBooksClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GoogleBooksClient"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Datei">
+                <MenuItem Header="Öffnen"/>
+                <MenuItem Header="Speichern"/>
+                <MenuItem Header="Beenden"/>
+            </MenuItem>
+        </Menu>
+
+        <Grid DockPanel.Dock="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0">Google Books API:</Label>
+            <TextBox Grid.Column="1" Name="suchTb" Text="Csharp"/>
+            <Button Click="LoadFromGoogleAPI" Grid.Column="2">Suchen</Button>
+        </Grid>
+
+        <WrapPanel DockPanel.Dock="Top">
+            <Button Click="SaveAsJson">Speichern als JSON...</Button>
+            <Button Click="LoadFromJSONFile">Lade JSON...</Button>
+            <Button Click="SumAllPages">Sum all Pages</Button>
+            <Button Click="BuchMit1000SeitenAusDiesmJahr">First book with 1000 pages</Button>
+            <Button Click="Filter1000" Content="Nur mit mehr als 1000 Seiten (LAMBDA)"/>
+            <Button Click="Filter1000Query" Content="Nur mit mehr als 1000 Seiten (Query)"/>
+            <Button Click="SelectAnno" Content="Select anno"/>
+        </WrapPanel>
+       
+        <StatusBar DockPanel.Dock="Bottom" 
+                   Height="22" 
+                   Background="GreenYellow" />
+
+        <DataGrid Name="myGrid"/>
+
+    </DockPanel>
+</Window>
