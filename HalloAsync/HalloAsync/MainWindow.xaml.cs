@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -76,8 +77,11 @@ namespace HalloAsync
             cts?.Cancel();
         }
 
+        [Experimental("Pass")]
         private async void StartAA(object sender, RoutedEventArgs e)
         {
+            ArgumentException.ThrowIfNullOrWhiteSpace(nameof(sender));
+
             ((Button)sender).IsEnabled = false;
             cts = new CancellationTokenSource();
             try
