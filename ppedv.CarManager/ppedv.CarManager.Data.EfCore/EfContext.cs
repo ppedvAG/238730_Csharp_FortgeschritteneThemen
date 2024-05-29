@@ -10,7 +10,8 @@ namespace ppedv.CarManager.Data.EfCore
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CarsManager;Trusted_Connection=True;TrustServerCertificate=True;");
+            optionsBuilder.UseLazyLoadingProxies()
+                          .UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=CarsManager;Trusted_Connection=True;TrustServerCertificate=True;");
         }
     }
 }

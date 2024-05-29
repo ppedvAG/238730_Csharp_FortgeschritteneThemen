@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ppedv.CarManager.Data.EfCore\ppedv.CarManager.Data.EfCore.csproj" />
+    <ProjectReference Include="..\ppedv.CarManager.Logic\ppedv.CarManager.Logic.csproj" />
+    <ProjectReference Include="..\ppedv.CarManager.Model\ppedv.CarManager.Model.csproj" />
+  </ItemGroup>
+
+</Project>

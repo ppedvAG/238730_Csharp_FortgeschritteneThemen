@@ -1,0 +1,41 @@
+﻿@page "/Cars"
+@using ppedv.CarManager.Logic
+@using ppedv.CarManager.Model
+@using ppedv.CarManager.Model.Contracts
+@inject IRepository repo
+@inject CarServices cs
+<h3>Cars</h3>
+
+<table>
+    <tr>
+        <th>Hersteller</th>
+        <th>Modell</th>
+        <th>Leistung in KW</th>
+        <th>Fahrer</th>
+    </tr>
+    @foreach (var c in cars)
+    {
+        <tr>
+            <td>@c.Manufacturer</td>
+            <td>@c.Model</td>
+            <td>@c.KW</td>
+            <td>
+                @foreach (var d in c.Drivers)
+                {
+                    <p>@d.Name</p>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<p>Driver with fastest Cars: @cs.GetDriverWithTheFastestCars().Name</p>
+
+@code {
+    IEnumerable<Car> cars;
+    protected override void OnInitialized()
+    {
+        cars = repo.GetAll<Car>();
+    }
+
+}
